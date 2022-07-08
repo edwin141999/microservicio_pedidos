@@ -11,7 +11,7 @@ COPY .env microservicio_pedidos/
 
 RUN cd microservicio_pedidos && npm install && npx prisma generate
 
-EXPOSE 3000
+EXPOSE 4000
 
 RUN apk add psmisc
 
