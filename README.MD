@@ -1,4 +1,4 @@
-CONSULTAS
+CONSULTAS DEL PEDIDO COMO CLIENTE
 
 POST= /users/mandadito
 
@@ -30,3 +30,8 @@ PUT= /users/entrega
 body:{\
   "id": 6, -> ID del pedido para relacionar\
 }
+
+
+CONSULTAS DEL PEDIDO COMO REPARTIDOR
+
+GET = /users/mostrarMandados
