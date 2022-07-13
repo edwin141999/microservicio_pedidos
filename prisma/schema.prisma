@@ -26,18 +26,18 @@ model item {
 }
 
 model pedidos {
-  id               Int        @id @unique(map: "id") @default(autoincrement())
+  id               Int       @id @unique(map: "id") @default(autoincrement())
   delivery_id      Int?
   envio_id         Int
   cliente_id       Int
-  fecha_solicitada DateTime?  @default(dbgenerated("(now())")) @db.Date
-  hora_solicitada  DateTime?  @default(dbgenerated("(now())")) @db.Timestamp(3)
-  hora_entregada   DateTime?  @db.Timestamp(0)
+  fecha_solicitada DateTime? @default(dbgenerated("(now())")) @db.Date
+  hora_solicitada  DateTime? @default(dbgenerated("(now())")) @db.Timestamp(3)
+  hora_entregada   DateTime? @db.Timestamp(0)
   entrega_estimada Int
-  metodo_pago      String     @db.VarChar(255)
-  subtotal         String     @db.VarChar(10)
-  cliente          cliente    @relation(fields: [cliente_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "pedidos_ibfk_2")
-  item             item       @relation(fields: [envio_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "pedidos_ibfk_3")
+  metodo_pago      String    @db.VarChar(255)
+  subtotal         String    @db.VarChar(10)
+  cliente          cliente   @relation(fields: [cliente_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "pedidos_ibfk_2")
+  item             item      @relation(fields: [envio_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "pedidos_ibfk_3")
 
   @@index([cliente_id], map: "cliente_id")
   @@index([delivery_id], map: "delivery_id")
@@ -45,11 +45,11 @@ model pedidos {
 }
 
 model repartidor {
-  id         Int       @id @unique(map: "id") @default(autoincrement())
+  id         Int    @id @unique(map: "id") @default(autoincrement())
   user_id    Int
-  city_drive String    @db.VarChar(255)
-  estado     String    @db.VarChar(15)
-  users      users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "repartidor_ibfk_1")
+  city_drive String @db.VarChar(255)
+  estado     String @db.VarChar(15)
+  users      users  @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "repartidor_ibfk_1")
 
   @@index([user_id], map: "user_id")
 }
@@ -64,11 +64,16 @@ model reputacion {
 }
 
 model tipopago {
-  id            Int    @id @unique(map: "id") @default(autoincrement())
-  user_id       Int
-  metodo        String @db.VarChar(255)
-  numero_cuenta Int?
-  users         users  @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "tipopago_ibfk_1")
+  id               Int     @id @unique(map: "id") @default(autoincrement())
+  user_id          Int
+  metodo           String  @db.VarChar(255)
+  cvv              String? @db.VarChar(255)
+  month_expiracion String? @db.VarChar(255)
+  nombre_tarjeta   String? @db.VarChar(255)
+  numero_tarjeta   String? @db.VarChar(255)
+  year_expiracion  String? @db.VarChar(255)
+  nombre_banco     String? @db.VarChar(255)
+  users            users   @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "tipopago_ibfk_1")
 
   @@index([user_id], map: "user_id")
 }
