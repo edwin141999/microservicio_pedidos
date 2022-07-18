@@ -18,6 +18,12 @@ body:{\
   "descripcion": "2 quesadillas y 3 tacos"\
 }
 
+POST = /users/mostrarItem
+
+body:{\
+    "id": 2 -> ID del item que quieres mostrar  
+\}
+
 PUT= /users/vincularRepartidor
 
 body:{\
