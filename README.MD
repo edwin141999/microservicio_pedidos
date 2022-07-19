@@ -14,8 +14,9 @@ POST= /users/item
 
 body:{\
   "tipo_producto": "Comida",\
-  "recoger_ubicacion":5ta Norte,\
-  "descripcion": "2 quesadillas y 3 tacos"\
+  "recoger_ubicacion":"5ta Norte",\
+  "descripcion": "2 quesadillas y 3 tacos",\
+  "precio_producto": "15"\
 }
 
 POST = /users/mostrarItem

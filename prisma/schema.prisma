@@ -24,6 +24,7 @@ model item {
   tipo_producto     String    @db.VarChar(255)
   recoger_ubicacion String    @db.VarChar(255)
   descripcion       String?   @db.VarChar(255)
+  precio_producto   String?   @db.VarChar(100)
   pedidos           pedidos[]
 }
 
