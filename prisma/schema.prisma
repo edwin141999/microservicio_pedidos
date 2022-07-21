@@ -25,6 +25,8 @@ model item {
   recoger_ubicacion String    @db.VarChar(255)
   descripcion       String?   @db.VarChar(255)
   precio_producto   String?   @db.VarChar(100)
+  latitud           String?    @db.VarChar(255)
+  longitud          String?    @db.VarChar(255)
   pedidos           pedidos[]
 }
 

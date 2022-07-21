@@ -16,7 +16,9 @@ body:{\
   "tipo_producto": "Comida",\
   "recoger_ubicacion":"5ta Norte",\
   "descripcion": "2 quesadillas y 3 tacos",\
-  "precio_producto": "15"\
+  "precio_producto": "15",\
+  "latitud":"16.74602514618138",\
+  "longitud": "-93.10425594449045"\
 }
 
 POST = /users/mostrarItem
